@@ -13,4 +13,4 @@ RUN apt-get install -y git
 RUN npm i -g semantic-release semantic-release-docker
 
 # Add the TannDev docker host to known hosts
-RUN ssh-keyscan -t rsa docker.tanndev.com > ~/.ssh/known_hosts
+#RUN ssh-keyscan -t rsa docker.tanndev.com > ~/.ssh/known_hosts
