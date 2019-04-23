@@ -1,13 +1,13 @@
-FROM jenkins/ssh-slave
+FROM foxylion/jenkins-ssh-slave
 MAINTAINER James Tanner "james.tanner@tanndev.com"
 
-# Add dependencies
+# Install Node.JS
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - \
+    && apt-get install -y nodejs
+
+# Add additional tools
 RUN apt-get update
-RUN apt-get install --no-install-recommends -y \
-    docker \
-    git \
-    nodejs \
-    npm
+RUN apt-get install -y git
 
 # Add global NPM packages
-RUN npm install -g semantic-release semantic-release-docker
+RUN npm i -g semantic-release semantic-release-docker
