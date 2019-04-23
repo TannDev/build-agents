@@ -6,3 +6,5 @@ RUN apk update
 RUN apk add --no-cache docker
 RUN apk add --no-cache git
 RUN apk add --no-cache openssh
+
+RUN npm install -g semantic-release semantic-release-docker
