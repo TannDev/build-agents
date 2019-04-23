@@ -10,3 +10,4 @@ RUN npm i -g semantic-release semantic-release-docker
 
 # Provide SSH config
 COPY ssh-config /root/.ssh/config
+RUN ssh-keyscan -t rsa docker.tanndev.com > ~/.ssh/known_hosts
