@@ -7,7 +7,7 @@ RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - \
 
 # Add additional tools
 RUN apt-get update
-RUN apt-get install -y git
+RUN apt-get install -y git openssh
 
 # Add global NPM packages
 RUN npm i -g semantic-release semantic-release-docker
