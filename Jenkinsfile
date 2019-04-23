@@ -4,6 +4,7 @@ pipeline {
     agent {
         dockerfile {
             additionalBuildArgs '--build-arg UID=$(id -u) --build-arg GID=$(id -g)'
+            args '-v /var/run/docker.sock:/var/run/docker.sock'
         }
     }
 
