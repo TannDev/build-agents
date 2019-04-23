@@ -12,7 +12,7 @@ pipeline {
             steps {
                 echo 'Building...'
                 script {
-                    image = docker.build('jftanner/jenkins-agent', '--build-arg UID=$(id -u) --build-arg GID=$(id -g)')
+                    image = docker.build('jftanner/jenkins-agent', '--build-arg UID=$(id -u) --build-arg GID=$(id -g) .')
                 }
             }
         }
