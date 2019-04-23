@@ -3,7 +3,7 @@
 pipeline {
     agent {
         dockerfile {
-            args '-v /var/run/docker.sock:/var/run/docker.sock -v /etc/passwd:/etc/passwd -v /var/lib/jenkins:/var/lib/jenkins'
+            additionalBuildArgs '--build-arg UID=$(id -u) --build-arg GID=$(id -g)'
         }
     }
 
@@ -12,7 +12,7 @@ pipeline {
             steps {
                 echo 'Building...'
                 script {
-                    image = docker.build("jftanner/jenkins-agent")
+                    image = docker.build('jftanner/jenkins-agent', '--build-arg UID=$(id -u) --build-arg GID=$(id -g)')
                 }
             }
         }
