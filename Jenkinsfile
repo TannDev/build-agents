@@ -1,19 +1,14 @@
 #!/usr/bin/env groovy
 
 pipeline {
-    agent {
-        dockerfile {
-            additionalBuildArgs '--build-arg UID=$(id -u) --build-arg GID=$(id -g)'
-            args '-v /var/run/docker.sock:/var/run/docker.sock'
-        }
-    }
+    agent { any }
 
     stages {
         stage('Build') {
             steps {
                 echo 'Building...'
                 script {
-                    image = docker.build('jftanner/jenkins-agent', '--build-arg UID=$(id -u) --build-arg GID=$(id -g) .')
+                    image = docker.build('jftanner/jenkins-agent')
                 }
             }
         }
