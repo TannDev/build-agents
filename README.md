@@ -8,3 +8,4 @@ Currently, there is only one agent available:
     - Node 10
     - Docker
     - Git
+    - Kubectl
